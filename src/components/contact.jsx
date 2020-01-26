@@ -15,7 +15,7 @@ class Contact extends Component {
 
   isOnline() {
     let test = Math.round(Math.random());
-    if (test == 1) {
+    if (test === 1) {
       this.setState({ online: true });
     } else {
       this.setState({ online: false });
