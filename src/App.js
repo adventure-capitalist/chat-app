@@ -6,7 +6,8 @@ const API = "https://randomuser.me/api/";
 
 class App extends Component {
   state = {
-    users: []
+    users: [],
+    online: false
   };
 
   componentDidMount() {
@@ -34,6 +35,7 @@ class App extends Component {
             <Contact
               picture={item.picture.thumbnail}
               name={item.name.first + " " + item.name.last}
+              online={this.state.online}
             />
           ))}
         </div>

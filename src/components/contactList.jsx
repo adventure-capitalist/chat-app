@@ -4,7 +4,11 @@ import "./contact.css";
 
 class Contact extends Component {
   state = {
-    online: "Online"
+    online: this.props.online
+  };
+
+  clickEventListener = () => {
+    this.setState({ online: this.state.online ? false : true });
   };
 
   render() {
@@ -13,7 +17,14 @@ class Contact extends Component {
         <img className="avatar" src={this.props.picture} />
         <div>
           <h4 className="name">{this.props.name}</h4>
-          <p className="status-text">{this.state.online}</p>
+          <p onClick={this.clickEventListener} className="status-text">
+            <span
+              className={this.state.online ? "status-online" : "status-offline"}
+            >
+              o
+            </span>
+            {this.state.online ? " Online" : " Offline"}
+          </p>
         </div>
       </div>
     );
